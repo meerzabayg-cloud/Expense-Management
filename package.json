@@ -1,0 +1,16 @@
+{
+  "name": "smart-family-expense-grocery-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-first PWA for family grocery planning, receipt scanning, expenses and budgets. The app itself lives in docs/ and needs no build step.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/unit/*.test.js",
+    "test:e2e": "node tests/e2e/run.mjs",
+    "serve": "node tests/serve.mjs"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.0.0"
+  },
+  "license": "MIT"
+}

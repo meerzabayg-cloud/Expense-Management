@@ -1,0 +1,22 @@
+{
+  "name": "Smart Family Expense & Grocery Manager",
+  "short_name": "Family Budget",
+  "description": "Private, offline grocery planner, receipt scanner, expense and budget tracker. Your data stays on your phone.",
+  "id": "./",
+  "start_url": "./#/dashboard",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f5f7",
+  "theme_color": "#0f3d3e",
+  "categories": ["finance", "productivity", "shopping"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Scan receipt", "url": "./#/scan", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Grocery list", "url": "./#/list", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

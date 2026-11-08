@@ -192,7 +192,8 @@ await step('Scenario 7: encrypted backup → erase → restore recovers all reco
   backupPath = OUT + 'backup.json';
   await dl.saveAs(backupPath);
   const raw = await readFile(backupPath, 'utf8');
-  assert.ok(!raw.includes('Carrefour'), 'backup must be encrypted');
+  const parsed = JSON.parse(raw);
+  assert.ok(parsed.encrypted && parsed.payload === undefined && !atob(parsed.envelope.data).includes('Carrefour'), 'backup must be encrypted');
   await page.evaluate(async () => { const { wipeAll } = await import('./js/backup.js'); await wipeAll(); });
   await page.reload();
   await page.waitForSelector('.ob-card');

@@ -147,7 +147,11 @@ test('encrypted backup round-trip restores every record; wrong password is rejec
   await repo.saveSettings({ currency: 'AED', userName: 'Test' });
   const before = await repo.loadAll();
   const text = await buildBackup({ password: 'correct horse' });
-  assert.ok(!text.includes('Tea'), 'encrypted backup must not contain readable data');
+  const file = JSON.parse(text);
+  assert.equal(file.payload, undefined, 'encrypted backup must not contain a readable payload');
+  const { envelope, ...meta } = file;
+  assert.ok(!JSON.stringify(meta).includes('Tea'), 'metadata must not leak data');
+  assert.ok(!atob(envelope.data).includes('Tea'), 'ciphertext must not contain plaintext');
   await assert.rejects(readBackup(text, 'wrong'), /Wrong password/);
   await assert.rejects(readBackup(text), /password-protected/);
   const tampered = JSON.parse(text); tampered.envelope.data = tampered.envelope.data.slice(0, -8) + 'AAAAAAA=';

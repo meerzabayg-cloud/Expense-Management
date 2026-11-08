@@ -2,7 +2,7 @@
 
 ## What was tested (8 November 2026)
 
-### Automated unit and workflow tests: `npm test` (24 of 24 passing)
+### Automated unit and workflow tests: `npm test` (24 of 24 passing; repeated 30× without failure)
 These run in Node.js against a real IndexedDB implementation (`fake-indexeddb`).
 
 - **Money maths:** parsing of `12.5`, `1,234.56`, `1.234,56`, `12,50` and `AED 32.00`; rounding; 3-decimal currencies; splits that always add up exactly. Floating-point input (`0.1+0.2`) is stored exactly.
